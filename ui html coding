@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-aa5vaebI4gfw28b4QFghF7uXr9+Pp9zr/J6fvme1jB7cVvUBJx8Sj4E+QhhgSznPebW5YirNE4fUzAjNTuQdKA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             margin: 0;
@@ -17,7 +15,9 @@
             background-color: black;
             overflow: hidden;
             display: flex;
-            justify-content: space-between;
+            position: fixed;
+           
+            
             align-items: center;
             padding: 0 20px;
             /* Add padding to create some space */
@@ -31,10 +31,10 @@
         }
 
         nav a:hover {
-           
+
             border-bottom: 3px solid #FFC000;
-        
-       }
+
+        }
 
         .menu-icon {
             color: white;
@@ -126,7 +126,7 @@
 
         #sideMenu {
             position: absolute;
-            top: 20px;
+            top: 50px;
             right: -250px;
             /* Initially hidden */
             background-color: #333;
@@ -141,7 +141,7 @@
         }
 
         #sideMenu ul li {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .hidden {
@@ -150,7 +150,7 @@
 
         #sideMenu button {
             position: absolute;
-            top: 10px;
+            top: 20px;
             right: 10px;
             cursor: pointer;
             background: none;
@@ -162,47 +162,51 @@
         #sideMenu button:hover {
             color: #555;
         }
-        
-        
+
+
         @media (max-width: 1200px),
         (max-height:1920px) {
 
-            .rectangles {
+             .rectangles {
                 width: 60%;
-                grid-template-columns: repeat(5, 100px);
+                grid-template-columns: repeat(6, 125px);
                 grid-gap: 120px;
-        
+                margin-left: 187px;
+
             }
 
-            .heading
-            {
-               padding-top: 33px;
+
+            .heading {
+                padding-top: 20px;
             }
-   
-               .heading,
-               .second {
-                   margin-left: 100px;
-                   font-size: 20px;
-                   font-weight: 500;
+
+            .heading,
+            .second {
+                margin-left: 100px;
+                font-size: 23px;
+                font-weight: 500;
             }
+
             nav a:hover {
-           
+
                 border-bottom: 3px solid #FFC000;
-            
-           }
-           
-          
+
+            }
+
+            nav a {
+                font-size: 20px;
+            }
+
+
             .second {
                 text-align: left;
                 color: white;
-                font-size: 23px;
-               
+
+
                 padding-top: 13px;
-           }
+            }
 
         }
-
-
     </style>
 
 
@@ -214,8 +218,8 @@
 <body style="background-color: rgb(40, 39, 39)">
     <nav>
         <div>
-            <a href="#home">Doozy</a></li>
-
+            <a href="#home"><img style="width: 100px; height: 35px;margin-top:25px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\design\asset\images\Doozy-Logo.png"></a>
             <a class="menu-text" href="#Greet">Greet</a>
             <a class="menu-text" href="#Wavepoint">Waypoint</a>
             <a class="menu-text" href="#Task">Task</a>
@@ -224,15 +228,16 @@
             <a class="menu-text" href="#Selfie Mode">Selfie Mode</a>
         </div>
 
-        <a id="menuButton">Menu</a>
+        <i style="font-size:24px;color:white" class="fa" id="menuButton">&#xf0c9;</i>
+
         <nav id="sideMenu" class="hidden">
-            <button id="closeButton">Close</button>
+
             <ul>
                 <li><a href="#">Settings</a></li>
-                <li><a href="#">Sleepmode</a></li>
+                <li><a href="#">Sleep mode</a></li>
                 <li><a href="#">Awake</a></li>
                 <li><a href="#">Silent</a></li>
-                
+
             </ul>
         </nav>
         </div>
@@ -252,6 +257,22 @@
             const sideMenu = document.getElementById('sideMenu');
             sideMenu.classList.add('hidden');
             sideMenu.style.right = '-250px'; // Hide the menu
+        });
+
+        document.getElementById('menuButton').addEventListener('click', function () {
+            var sideMenu = document.getElementById('sideMenu');
+            sideMenu.style.display = (sideMenu.style.display === 'block') ? 'none' : 'block';
+        });
+
+        // JavaScript to close the side menu when clicking outside of it
+        document.addEventListener('click', function (event) {
+            var sideMenu = document.getElementById('sideMenu');
+            var menuButton = document.getElementById('menuButton');
+
+            // Check if the clicked element is outside both the menu and the menu button
+            if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                sideMenu.style.display = 'none';
+            }
         });
 
     </script>
@@ -285,8 +306,20 @@
                 <img class="arrow-icon" style="width: 45px; height:45px;"
                     src="C:\Users\kkart\OneDrive\Desktop\greets.png" alt="Right Arrow">Greet 5
             </div>
-          
-
+            <div class="rectangle">
+                <img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\greets.png" alt="Right Arrow">Greet 6
+            </div>
+        </div>
+        <div class="rectangles">
+            <div class="rectangle">
+                <img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\greets.png" alt="Right Arrow">Greet 7
+            </div>
+            <div class="rectangle">
+                <img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\greets.png" alt="Right Arrow">Greet 8
+            </div>
         </div>
 
     </section>
@@ -302,12 +335,20 @@
                     src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 2</div>
             <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
                     src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 3</div>
-                    <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 4</div>
-                <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 4</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 6</div>
         </div>
-        
+        <div class="rectangles">
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 7</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\waypoints.png" alt="Right Arrow">waypoint 8</div>
+        </div>
+
 
     </section>
     <section>
@@ -320,12 +361,20 @@
                     src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 2</div>
             <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
                     src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 3</div>
-                    <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 4</div>
-                <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 4</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 6</div>
         </div>
-        
+        <div class="rectangles">
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 7</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\actions.png" alt="Right Arrow">Task 8</div>
+        </div>
+
 
     </section>
     <section>
@@ -338,12 +387,19 @@
                     src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 2</video></div>
             <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
                     src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 3</div>
-                    <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 4</video></div>
-                <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 5</div>
-        </div
-
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 4</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 6</div>
+        </div>
+        <div class="rectangles">
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 7</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\videoss.png" alt="Right Arrow">video 8</div>
+        </div>
     </section>
     <section>
         <h1 id="Screen Saver" class="second">Screensaver : </h1>
@@ -355,10 +411,18 @@
                     src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 2</div>
             <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
                     src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 3</div>
-                    <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 4</div>
-                <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 4</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 6</div>
+        </div>
+        <div class="rectangles">
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 7</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\screensavers.png" alt="Right Arrow">screensaver 8</div>
         </div>
 
     </section>
@@ -375,12 +439,21 @@
 
             <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
                     src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 3</div>
-                    <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 4</div>
-    
-                <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
-                        src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 4</div>
 
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 5</div>
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 6</div>
+            </div>
+        <div class="rectangles">
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 7</div>
+
+
+            <div class="rectangle"><img class="arrow-icon" style="width: 45px; height:45px;"
+                    src="C:\Users\kkart\OneDrive\Desktop\selfie modes.png" alt="Right Arrow">selfie mode 8</div>
         </div>
 
     </section>
